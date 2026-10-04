@@ -1,0 +1,38 @@
+{
+    "name": "craftcms/cms",
+    "description": "CraftCMS project",
+    "type": "project",
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {},
+    "scripts": {
+        "post-autoload-dump": [
+            "@php -r \"echo 'autoload complete';\"",
+            "@build"
+        ],
+        "post-install-cmd": [
+            "@build"
+        ],
+        "post-update-cmd": [
+            "@build"
+        ],
+        "build": [
+            "sh scripts/build.sh"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "modules\\": "modules/",
+            "config\\": "config/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "craftcms/plugin-installer": true,
+            "yiisoft/yii2-composer": true
+        }
+    }
+}
